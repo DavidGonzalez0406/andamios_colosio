@@ -1,0 +1,5 @@
+Flask
+Flask-MySQLdb
+flask-cors
+Flask-Mail
+itsdangerous
