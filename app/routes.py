@@ -186,4 +186,10 @@ def probar_conexion():
         return f"❌ Error al conectar con MySQL: {str(e)}"
 
 
+@app.route('/inventario')
+def inventario():
+    return render_template('inventario/inventario.html')
 
+@app.route('/cliente')
+def cliente():
+    return render_template('cliente/cliente.html')

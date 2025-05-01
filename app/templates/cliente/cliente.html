@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clientes - Colosio</title>
-  <link rel="stylesheet" href="/andamios_colosio/app/static/cliente.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='cliente.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@
   <div class="sidebar">
     <div class="logo">
       <img src="logo.png" alt="Logo" />
-    </div> <!--pagina --> <!--otro comentario aaaaaaaaaaa aaaaaa aaaa-->
+    </div>
     <nav>
       <ul>
         <li><a href="#"><span>👤</span> Cliente</a></li>
