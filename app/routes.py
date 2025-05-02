@@ -17,14 +17,14 @@ def login():
         contrasena = request.form["contrasena"]
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT * FROM Usuarios WHERE Correo = %s", (correo,))
+        cur.execute("SELECT * FROM usuario WHERE u_correo = %s", (correo,))
         user = cur.fetchone()
         cur.close()
 
-        if user and check_password_hash(user[4], contrasena):
+        if user and check_password_hash(user[5], contrasena):
             session["usuario_id"] = user[0]  # id_usuario
-            session["correo"] = user[3]      # u_correo
-            session["rol"] = user[5]          # rol
+            session["correo"] = user[4]      # u_correo
+            session["rol"] = user[6]          # rol
             flash("¡Bienvenido!", "success")
             return redirect(url_for("index"))  # Cambiar luego a tu dashboard real
         else:
@@ -155,9 +155,7 @@ def nueva_contrasena():
     return render_template("recuperar/nueva_contrasena.html")
 
 
-@app.route("/dashboard")
-def dashboard():
-    return render_template("dashboard.html")
+
 
 
 #pendiente de terminar
@@ -171,23 +169,3 @@ def index():
     if "usuario_id" not in session:
         return redirect(url_for("login"))
     return render_template("dashboard.html")
-
-@app.route("/probar-conexion")
-def probar_conexion():
-    try:
-        cur = mysql.connection.cursor()
-        cur.execute("SELECT 1")  # Consulta mínima para probar conexión
-        cur.close()
-        return "✅ Conexión a MySQL exitosa"
-    except Exception as e:
-        return f"❌ Error al conectar con MySQL: {str(e)}"
-
-
-@app.route('/inventario')
-def inventario():
-    return render_template('inventario/inventario.html')
-
-#clientes
-@app.route('/cliente')
-def cliente():
-    return render_template('cliente/cliente.html')
