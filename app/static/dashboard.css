@@ -3,21 +3,7 @@ body {
     height: 100vh;
   }
   
-  .sidebar {
-    background-color: #8B0000;
-    color: white;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  .sidebar a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
+
   .card-custom {
     border: 1px solid #8B0000;
     border-radius: 15px;
