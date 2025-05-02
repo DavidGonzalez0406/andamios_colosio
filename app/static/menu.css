@@ -59,8 +59,9 @@
   }
   
   .menu-item img.icono {
-    width: 64px;
-    height: 64px;
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
     margin-right: 10px;
   }
   
