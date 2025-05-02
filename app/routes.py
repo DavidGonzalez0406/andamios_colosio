@@ -159,9 +159,9 @@ def nueva_contrasena():
 
 
 #pendiente de terminar
-@app.route("/nueva-renta")
-def nueva_renta():
-    return render_template("rentas/nueva_renta.html")
+@app.route("/cliente")
+def cliente():
+    return render_template("cliente/cliente.html")
 
 
 @app.route("/")
@@ -169,3 +169,10 @@ def index():
     if "usuario_id" not in session:
         return redirect(url_for("login"))
     return render_template("dashboard.html")
+
+#esto hace que cada que se EJECUTE se abra el login, hay que quitarlo para que no se cierre luego cada que se refresque por que puede ser incomodo al cliente
+@app.before_request
+def forzar_logout_en_inicio():
+    if request.endpoint == "index" and "usuario_id" in session:
+        # Si es la primera visita al index y quieres forzar login cada vez
+        session.clear()
