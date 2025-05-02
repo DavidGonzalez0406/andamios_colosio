@@ -155,18 +155,15 @@ def nueva_contrasena():
     return render_template("recuperar/nueva_contrasena.html")
 
 
-
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 
 #pendiente de terminar
 @app.route("/nueva-renta")
 def nueva_renta():
     return render_template("rentas/nueva_renta.html")
-
-
-
-
-
 
 
 @app.route("/")
@@ -186,4 +183,11 @@ def probar_conexion():
         return f"❌ Error al conectar con MySQL: {str(e)}"
 
 
+@app.route('/inventario')
+def inventario():
+    return render_template('inventario/inventario.html')
 
+#clientes
+@app.route('/cliente')
+def cliente():
+    return render_template('cliente/cliente.html')
