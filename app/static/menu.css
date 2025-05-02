@@ -67,8 +67,8 @@
   
   /* Elemento deshabilitado */
   .menu-item.disabled {
-    background-color: #8f8bd9;
-    color: #ccc;
+    background-color: #6864af;
+    color: #e1dede;
     cursor: not-allowed;
     pointer-events: none;
   }
