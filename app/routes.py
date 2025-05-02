@@ -170,3 +170,11 @@ def index():
     if "usuario_id" not in session:
         return redirect(url_for("login"))
     return render_template("dashboard.html")
+
+
+#esto hace que cada que se EJECUTE se abra el login, hay que quitarlo para que no se cierre luego cada que se refresque por que puede ser incomodo al cliente
+@app.before_request
+def forzar_logout_en_inicio():
+    if request.endpoint == "index" and "usuario_id" in session:
+        # Si es la primera visita al index y quieres forzar login cada vez
+        session.clear()
