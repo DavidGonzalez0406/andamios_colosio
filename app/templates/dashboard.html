@@ -31,7 +31,7 @@
     </a>
     <div class="menu-item">
       <img src="{{ url_for('static', filename='img/clientes_icono.png') }}" alt="Cliente Icono" class="icono">
-      <a href="{{ url_for('cliente') }}" >Cliente</a>
+      <a href="{{ url_for('cliente')}}" >Cliente</a>
     </div>
     <div class="menu-item">
       <img src="{{ url_for('static', filename='img/rentas_icono.png') }}"alt="Rentas Icono" class="icono"> Rentas
@@ -50,7 +50,9 @@
         <img src="{{ url_for('static', filename='img/ajustes_icono.png') }}" alt="Ajustes Icono" class="icono"> Ajustes
       </div>
       <div class="menu-item">
-        <img src="{{ url_for('static', filename='img/usuario_icono.png') }}" alt="Usuario Icono" class="icono"> Usuario
+        <img src="{{ url_for('static', filename='img/usuario_icono.png') }}" alt="Usuario Icono" class="icono"> 
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Cerrar sesión</a>
+
       </div>
     </div>
   </div>

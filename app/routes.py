@@ -9,7 +9,6 @@ def generar_token(correo):
     serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
     return serializer.dumps(correo, salt='recuperar-contrasena')
 
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -87,11 +86,6 @@ def recuperar():
 
 
 
-
-
-
-
-
 @app.route("/resetear/<token>", methods=["GET", "POST"])
 def resetear(token):
     try:
@@ -120,11 +114,6 @@ def resetear(token):
         return redirect(url_for('login'))
 
     return render_template("recuperar/resetear.html")
-
-
-
-
-
 
 
 @app.route("/nueva_contrasena", methods=["GET", "POST"])
@@ -156,14 +145,14 @@ def nueva_contrasena():
 
 
 
-
-
 #pendiente de terminar
+@app.route("/nueva-renta")
+def nueva_renta():
+    return render_template("rentas/nueva_renta.html")
+
 @app.route("/cliente")
 def cliente():
     return render_template("cliente/cliente.html")
-
-
 
 @app.route("/")
 def index():
@@ -171,10 +160,14 @@ def index():
         return redirect(url_for("login"))
     return render_template("dashboard.html")
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("Sesión cerrada exitosamente", "info")
+    return redirect(url_for("login"))
 
-#esto hace que cada que se EJECUTE se abra el login, hay que quitarlo para que no se cierre luego cada que se refresque por que puede ser incomodo al cliente
 @app.before_request
-def forzar_logout_en_inicio():
-    if request.endpoint == "index" and "usuario_id" in session:
-        # Si es la primera visita al index y quieres forzar login cada vez
+def forzar_sesion_al_iniciar():
+    if not session.get('sesion_iniciada'):
         session.clear()
+        session['sesion_iniciada'] = True
