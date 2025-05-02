@@ -164,8 +164,14 @@ def nueva_renta():
     return render_template("rentas/nueva_renta.html")
 
 
+
 @app.route("/")
 def index():
     if "usuario_id" not in session:
         return redirect(url_for("login"))
     return render_template("dashboard.html")
+
+#clientes
+@app.route("/cliente")
+def cliente():
+    return render_template("cliente/cliente.html")
