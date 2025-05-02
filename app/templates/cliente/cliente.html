@@ -44,23 +44,32 @@
       <div class="main">
 
         <div class="top-bar">
-          <button class="back-button">⬅</button>
           <h2>Clientes</h2>
         </div>
+
+        <hr class="linea-divisora">
 
         <div class="watermark">
           <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Colosio Logo" class="watermark">
         </div>
 
         <div class="client-section">
-          <h3>Buscar Cliente Registrado</h3>
-          <div class="search-container">
-            <input type="text" placeholder="ID inválido o nombre, ingresalo de nuevo">
-            <button class="search-btn">🔍</button>
+
+          <div class="barra-section">
+
+            <h3>Buscar Cliente Registrado</h3>
+            <div class="search-container">
+              <input type="text" placeholder="Buscar Cliente...">
+              <button class="search-btn">
+                <img src="{{ url_for('static', filename='img/lupa.png') }}"  alt="Buscar" class="search-btn">
+              </button>
+            </div>
           </div>
-          <button class="new-client-btn">➕ Nuevo Cliente</button>
+          
+          <button class="new-client-btn">➕ Nuevo Cliente </button>
 
         </div>
+
       </div>
     </body>
   </html>
